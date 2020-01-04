@@ -1,0 +1,108 @@
+import java.util.Scanner;
+
+
+public class TestCalisan {
+
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Calisanlar Programina Hosgeldiniz....");
+		String islemler= "1.Yazilimci Islemleri\n" +
+				         "2.Yonetici Islemleri\n" +
+				         "Cikis icin q'ya basiniz";
+		System.out.println("**********************");
+		System.out.println(islemler);
+		System.out.println("**********************");
+		
+		Scanner klavye=new Scanner(System.in);
+		
+		while(true)
+		{
+			System.out.println("Bir islem seciniz:");
+			String islemSec=klavye.nextLine();
+			if(islemSec.equals("q")) 
+			{
+				System.out.println("Programdan Cikiliyor.....");
+				System.out.println("Hoscakalin..");
+				break;
+			}
+			else if(islemSec.equals("1"))
+			{
+				Yazilimci yazilimci=new Yazilimci("Mehmet","Yurek",123,"Java Python C");
+				while(true)
+				{
+					String yazilimci_islem="1.Format At\n" +
+							               "2.Bilgileri Goster\n" +
+							               "Cikis icin q'ya basiniz";
+					System.out.println(yazilimci_islem);
+					System.out.println("Bir islem seciniz:");
+					String islemSec1=klavye.nextLine();
+					
+					if(islemSec1.equals("q"))
+					{
+						System.out.println("Yazilimci islemden cikiliyor....");
+						break;
+					}
+					else if(islemSec1.equals("1"))
+					{
+						System.out.println("Format atilmasi gereken isletim sistemini girin:");
+						String isletimSistemi=klavye.nextLine();
+						yazilimci.formatAt(isletimSistemi);
+					}
+					else if(islemSec1.equals("2"))
+					{
+						yazilimci.BilgileriGoster();
+					}
+					else
+					{
+						System.out.println("Gecersiz bir islem girdiniz.....");
+					}
+							
+				}
+				
+			}
+			else if(islemSec.equals("2"))
+			{
+				Yonetici yonetici=new Yonetici("Enes","Haciosman",525,12);
+				String islemler1="1.Zam Yap\n" +
+						        "2.Bilgileri Goster\n2" +
+						        "Cikis icin q'ya basiniz ";
+				System.out.println(islemler1);
+				
+				while(true)
+				{   
+					System.out.println("Bir yonetici islemi seciniz:");
+					String islemSec2=klavye.nextLine();
+					
+					if(islemSec2.equals("q"))
+					{
+						System.out.println("Yonetici islemlerinden cikiliyor");
+						break;
+					}
+					else if(islemSec2.equals("1"))
+					{
+						System.out.println("Zam miktarini giriniz:");
+						int zamMiktari=klavye.nextInt();
+						klavye.nextLine();
+						yonetici.zamYap(zamMiktari);
+					}
+					else if(islemSec2.equals("2"))
+					{
+						yonetici.BilgileriGoster();
+					}
+					else
+					{
+						System.out.println("Gecersiz bir islem girdiniz....");
+					}
+				}
+				
+			}
+			else
+			{
+				System.out.println("Gecersiz bir islem girdiniz......");
+			}
+		}
+
+	}
+
+}
