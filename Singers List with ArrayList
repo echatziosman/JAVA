@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+
+
+public class Sarkicilar {
+	private ArrayList<String> sarkicilar_listesi = new ArrayList<String>();
+	
+	public void sarkicilari_bastir()
+	{
+		System.out.println("Sarkicilar Listesinde "+sarkicilar_listesi.size()+" tane sarkici var.");
+		for(int i=0;i<sarkicilar_listesi.size();i++)
+		{
+			System.out.println(i+1+". Sarkici "+sarkicilar_listesi.get(i));
+		}
+	}
+	public void sarkici_ekle(String isim)
+	{
+		sarkicilar_listesi.add(isim);
+		System.out.println(isim+" Sarkicilar listesine eklendi.");
+	}
+	public void sarkici_guncelle(String yeni_isim,int pozisyon)
+	{
+		sarkicilar_listesi.set(pozisyon, yeni_isim);
+		System.out.println(yeni_isim+" listeye basariyla eklendi.");
+	}
+	public void sarkici_sil(int pozisyon)
+	{
+		sarkicilar_listesi.remove(pozisyon);
+	}
+	public void sarkici_ara(String sarkici_ismi)
+	{
+		int pozisyon=sarkicilar_listesi.indexOf(sarkici_ismi);
+		if(pozisyon>=0)
+		{
+			System.out.println("Sarkici Bulundu.");
+			System.out.println(sarkici_ismi+" isimli sarkici "+(pozisyon+1)+". pozisyonda.");
+		}
+		else
+		{
+			System.out.println("Sarkici Bulunamadi..");
+		}
+	}
+
+}
