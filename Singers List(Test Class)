@@ -1,0 +1,97 @@
+import java.util.Scanner;
+
+
+public class Test {
+
+	private static Sarkicilar sarkicilar = new Sarkicilar();
+	private static Scanner klavye= new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		System.out.println("\t Sarkicilar uygulamasina Hosgeldiniz..");
+		islemleri_bastir();
+		
+		boolean flag=false;
+		int islem;
+		
+		
+		
+		while(!flag)
+		{
+			System.out.println("Bir islem seciniz:");
+			islem = klavye.nextInt();
+			klavye.nextLine();
+			
+			switch(islem)
+			{
+			   case 0: 
+				   islemleri_bastir();
+			       break;
+			   case 1: 
+				   sarkicilari_goruntule();
+			       break;
+			   case 2:
+				   sarkici_ekle();
+				   break;
+			   case 3:
+				   sarkici_guncelle();
+				   break;
+			   case 4:
+				   sarkici_sil();
+				   break;
+			   case 5:
+				   sarkici_ara();
+				   break;
+			   case 6:
+				   flag=true;
+				   System.out.println("Programdan Cikiliyor....");
+				   break;
+			   
+			}
+		}
+		
+
+	}
+	public static void islemleri_bastir()
+	{
+		System.out.println("\t 0- Islemleri Goruntule.");
+		System.out.println("\t 1- Sarkicilari Goruntule.");
+		System.out.println("\t 2- Sarkici Ekle.");
+		System.out.println("\t 3- Sarkici Guncelle.");
+		System.out.println("\t 4- Sarkici Sil.");
+		System.out.println("\t 5- Sarkici Ara.");
+		System.out.println("\t 6- Cikis.");
+	}
+	public static void sarkicilari_goruntule()
+	{
+		sarkicilar.sarkicilari_bastir();
+	}
+	public static void sarkici_ekle()
+	{
+		System.out.println("Bir sarkici ismi giriniz:");
+		String isim=klavye.nextLine();
+		sarkicilar.sarkici_ekle(isim);
+	
+	}
+	public static void sarkici_guncelle()
+	{
+		System.out.println("Pozisyonu giriniz(1,2,3....) ve yeni ismi:");
+		int pozisyon=klavye.nextInt();
+		klavye.nextLine();
+		String yeni_isim=klavye.nextLine();
+		sarkicilar.sarkici_guncelle(yeni_isim, pozisyon-1);
+	}
+	public static void sarkici_sil()
+	{
+		System.out.println("Silinmesini istediginiz pozisyonu giriniz:");
+		int pozisyon=klavye.nextInt();
+		sarkicilar.sarkici_sil(pozisyon-1);
+	}
+	public static void sarkici_ara()
+	{
+		System.out.println("Aramak istediginiz sarkici ismini giriniz");
+		String isim=klavye.nextLine();
+		sarkicilar.sarkici_ara(isim);
+	}
+
+}
