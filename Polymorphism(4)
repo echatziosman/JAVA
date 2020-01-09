@@ -1,0 +1,33 @@
+public class Dragon extends Beyblade {
+	
+	private String kutsalCanavar;
+	private String gizliYetenek;
+	
+	public Dragon(String beybladeci, int donusHizi, int saldiriGucu,String kutsalCanavar, String gizliYetenek)
+	{
+		super(beybladeci, donusHizi, saldiriGucu);
+		this.kutsalCanavar = kutsalCanavar;
+		this.gizliYetenek = gizliYetenek;
+	}
+
+	@Override
+	public void kutsalCanavarOrtayaCikar() {
+		
+		System.out.println(getBeybladeci()+"  "+kutsalCanavar+"  i ortaya cikariyor..");
+		System.out.println(getBeybladeci()+"  Hayalet Kasirgasi ile Saldiriyor..");
+	}
+
+	@Override
+	public void bilgileriGoster() {
+		
+		super.bilgileriGoster();
+		System.out.println("Kutsal Canavarin Adi:  "+kutsalCanavar);
+		System.out.println("Kutsal Canavarin Gizli Yetenegi:  "+gizliYetenek);
+		}
+	
+	
+	
+	
+	
+
+}
