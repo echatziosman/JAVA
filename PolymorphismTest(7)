@@ -1,0 +1,39 @@
+import java.util.Scanner;
+public class TestBeyblade {
+
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Beyblade Programina Hosgeldiniz...");
+		System.out.println("Cikis icin q ya basiniz:");
+		Scanner klavye=new Scanner(System.in);
+		
+		while(true)
+		{   
+			System.out.println("Hangi Beyblade i uretmek istersiniz? ");
+			String islem=klavye.nextLine();
+			if(islem.equals("q"))
+			{
+				System.out.println("Programdan cikiliyor....");
+				break;
+			}
+			else
+			{
+				BeybladeFabrikasi fabrika = new BeybladeFabrikasi();
+				Beyblade beyblade=fabrika.beybladeUret(islem);
+				
+				if(beyblade== null)
+				{
+					System.out.println("Lutfen gecerli bir beyblade ismi giriniz..");
+				}
+				else
+				{
+                   beyblade.bilgileriGoster();
+                   beyblade.saldir();
+                   beyblade.kutsalCanavarOrtayaCikar();
+			    }
+		   } 
+		}
+	}
+
+}
